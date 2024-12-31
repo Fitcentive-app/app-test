@@ -1,5 +1,5 @@
 {
-  "name": "fitcentive-Test",
+  "name": "fitcentive-test",
   "version": "1.0.0",
   "main": "expo-router/entry",
   "scripts": {
@@ -13,8 +13,9 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
+    "@react-native-community/cli-server-api": "^15.1.3",
     "@react-navigation/native": "^7.0.3",
-    "expo": "^52.0.23",
+    "expo": "^51.0.38",
     "expo-constants": "~17.0.3",
     "expo-linking": "~7.0.3",
     "expo-router": "~4.0.6",
