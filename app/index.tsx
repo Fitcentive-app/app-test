@@ -1,4 +1,5 @@
-import { Text, View } from "react-native";
+import { router } from "expo-router";
+import { Text, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
   return (
@@ -8,7 +9,23 @@ export default function Index() {
         justifyContent: "center",
         alignItems: "center",
       }}>
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <TouchableOpacity
+        onPress={() => router.push("/(tabs)/home")}
+        className='bg-[#00A277] px-8 py-4 rounded-full shadow-lg'
+        activeOpacity={0.8}>
+        <Text className='text-white font-bold text-lg tracking-wide'>
+          Go to Home
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => router.push("/(auth)/welcome")}
+        className='bg-[#00A277] px-8 py-4 rounded-full shadow-lg mt-5'
+        activeOpacity={0.8}>
+        <Text className='text-white font-bold text-lg tracking-wide'>
+          Go to Onboarding
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
