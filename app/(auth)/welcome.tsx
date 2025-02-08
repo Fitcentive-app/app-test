@@ -123,12 +123,16 @@ const Welcome = () => {
           )
         }
         activeDot={
-          <View
-            className="w-3 h-3 mx-1.5 bg-[#00ffbb] rounded-full "
-            style={{
-              marginBottom: Platform.OS === "ios" && height > 800 ? 30 : 0,
-            }}
-          />
+          activeIndex !== 4 ? (
+            <View
+              className="w-3 h-3 mx-1.5 bg-[#00ffbb] rounded-full "
+              style={{
+                marginBottom: Platform.OS === "ios" && height > 800 ? 30 : 0,
+              }}
+            />
+          ) : (
+            <></>
+          )
         }
         onIndexChanged={handleIndexChanged}
       >
@@ -210,7 +214,7 @@ const createStyles = () =>
       alignItems: "center",
       justifyContent: "center",
       position: "absolute",
-      bottom: 30,
+      bottom: 0,
     },
     buttonText: {
       color: "#000",
