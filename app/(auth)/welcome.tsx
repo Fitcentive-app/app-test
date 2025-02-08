@@ -58,83 +58,85 @@ const Welcome = () => {
   };
 
   const renderItem = (item: OnboardingItem, index: number) => (
-    <SafeAreaPage>
+    <ImageBackground
+      style={styles.itemView}
+      source={onboardBackground}
+      resizeMode="stretch"
+      key={`ImageBackground-${index}`}
+    >
       <ImageBackground
-        style={styles.itemView}
-        source={onboardBackground}
-        resizeMode="stretch"
+        style={styles.innerImage}
+        imageStyle={
+          index === 1
+            ? styles.innerImage1
+            : index === 2
+            ? styles.innerImage2
+            : index === 3
+            ? styles.innerImage3
+            : {}
+        }
+        resizeMode="contain"
+        source={index === 2 || index === 3 ? item?.topImage : item?.bgImage}
       >
-        <ImageBackground
-          style={styles.innerImage}
-          imageStyle={
-            index === 1
-              ? styles.innerImage1
-              : index === 2
-              ? styles.innerImage2
-              : index === 3
-              ? styles.innerImage3
-              : {}
-          }
-          resizeMode="contain"
-          source={index === 2 || index === 3 ? item?.topImage : item?.bgImage}
-        >
-          {item?.topImage && (
-            <Image
-              style={[
-                styles.topImage,
-                index === 2
-                  ? styles.topImage2
-                  : index === 3
-                  ? styles.topImage3
-                  : {},
-              ]}
-              source={
-                index === 2 || index === 3 ? item?.bgImage : item?.topImage
-              }
-            />
-          )}
-          <View style={styles.textContainer}>
-            <Text style={styles.titleGreen}>{item?.titleGreen}</Text>
-            <Text style={styles.titleWhite}>{item?.titleWhite}</Text>
-            <Text style={styles.description}>{item?.description}</Text>
-          </View>
-        </ImageBackground>
+        {item?.topImage && (
+          <Image
+            style={[
+              styles.topImage,
+              index === 2
+                ? styles.topImage2
+                : index === 3
+                ? styles.topImage3
+                : {},
+            ]}
+            source={index === 2 || index === 3 ? item?.bgImage : item?.topImage}
+          />
+        )}
+        <View style={styles.textContainer}>
+          <Text style={styles.titleGreen}>{item?.titleGreen}</Text>
+          <Text style={styles.titleWhite}>{item?.titleWhite}</Text>
+          <Text style={styles.description}>{item?.description}</Text>
+        </View>
       </ImageBackground>
-    </SafeAreaPage>
+    </ImageBackground>
   );
 
   return (
-    <Swiper
-      ref={swiperRef}
-      loop={false}
-      dot={
-        activeIndex !== 4 ? (
+    <SafeAreaPage>
+      <Swiper
+        ref={swiperRef}
+        loop={false}
+        dot={
+          activeIndex !== 4 ? (
+            <View
+              className="w-3 h-3 mx-1.5 border border-white rounded-full "
+              style={{
+                marginBottom: Platform.OS === "ios" && height > 800 ? 30 : 0,
+              }}
+            />
+          ) : (
+            <TouchableOpacity
+              style={styles.buttonView}
+              onPress={clickOnStarted}
+            >
+              <Text style={styles.buttonText}>GET STARTED</Text>
+            </TouchableOpacity>
+          )
+        }
+        activeDot={
           <View
-            className="w-3 h-3 mx-1.5 border border-white rounded-full "
+            className="w-3 h-3 mx-1.5 bg-[#00ffbb] rounded-full "
             style={{
-              marginBottom: Platform.OS === "ios" && height > 800 ? 65 : 0,
+              marginBottom: Platform.OS === "ios" && height > 800 ? 30 : 0,
             }}
           />
-        ) : (
-          <TouchableOpacity style={styles.buttonView} onPress={clickOnStarted}>
-            <Text style={styles.buttonText}>GET STARTED</Text>
-          </TouchableOpacity>
-        )
-      }
-      activeDot={
-        <View
-          className="w-3 h-3 mx-1.5 bg-[#00ffbb] rounded-full "
-          style={{
-            marginBottom: Platform.OS === "ios" && height > 800 ? 65 : 0,
-          }}
-        />
-      }
-      onIndexChanged={handleIndexChanged}
-    >
-      {onboardingData.map((item, index) => {
-        return renderItem(item, index);
-      })}
-    </Swiper>
+        }
+        onIndexChanged={handleIndexChanged}
+      >
+        {onboardingData.map((item, index) => {
+          return renderItem(item, index);
+        })}
+      </Swiper>
+    </SafeAreaPage>
   );
 };
 
