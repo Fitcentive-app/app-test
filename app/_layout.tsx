@@ -33,6 +33,7 @@ export default function RootLayout() {
       <Stack.Screen name='(tabs)' />
       <Stack.Screen name='(auth)' />
       <Stack.Screen name='landing-page' />
+      <Stack.Screen name='challenge-preview' />
     </Stack>
   );
 }

@@ -24,7 +24,7 @@ import { ScreenWidth } from "@/utils";
 
 export const GetSponsors = () => {
   const styles = createStyles();
-  const [firstTimeUser] = useState(false);
+  const [firstTimeUser] = useState(true);
 
   return (
     <ScrollView style={styles.scrollView}>
