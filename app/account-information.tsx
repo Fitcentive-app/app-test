@@ -252,11 +252,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 16,
   },
-  ageButtonText: {
-    color: "#ADADAD",
-    fontSize: 16,
-    fontWeight: "600",
-  },
   agePlaceholder: {
     color: "#ADADAD",
   },

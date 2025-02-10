@@ -30,7 +30,7 @@ const createStyles = (colors: any) =>
     },
     title: {
       flex: 1,
-      fontSize: 24,
+      fontSize: 32,
       fontFamily: "RiftSoft-Bold",
       color: "#fff",
       textAlign: "center",

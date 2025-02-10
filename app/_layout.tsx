@@ -35,6 +35,7 @@ export default function RootLayout() {
       <Stack.Screen name='landing-page' />
       <Stack.Screen name='challenge-preview' />
       <Stack.Screen name='account-information' />
+      <Stack.Screen name='contact-form' />
     </Stack>
   );
 }
