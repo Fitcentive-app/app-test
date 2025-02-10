@@ -27,7 +27,7 @@ import { ScreenWidth } from "@/utils";
 
 export const InviteFriend = () => {
   const styles = createStyles();
-  const [firstTimeUser] = useState(true);
+  const [firstTimeUser] = useState(false);
 
   return (
     <ScrollView style={styles.scrollView}>
@@ -112,6 +112,7 @@ export const InviteFriend = () => {
         </LinearGradient>
       ) : (
         <>
+          <View style={styles.leftTopImage}></View>
           <LinearGradient
             colors={["#393939", "#393939", "#646464"]}
             style={styles.promoCard2}
@@ -187,7 +188,7 @@ export const InviteFriend = () => {
             </View>
           </LinearGradient>
 
-          <View style={styles.leftTopImage}>
+          <View style={styles.leftTopImageBackground}>
             <Image source={earning} style={styles.leftTopImage2} />
           </View>
 
@@ -404,19 +405,27 @@ const createStyles = () =>
     },
     leftTopImage: {
       height: 203,
-      width: 192,
+      width: 204,
       borderRadius: 200,
-      left: 32,
+      left: 30,
       position: "absolute",
       backgroundColor: "#393939",
-      borderWidth: 2,
+      borderWidth: 1,
       borderColor: "#7A7777",
+    },
+    leftTopImageBackground: {
+      height: 203,
+      width: 200,
+      borderRadius: 200,
+      left: 32,
+      top: 1,
+      position: "absolute",
+      backgroundColor: "#393939",
     },
     leftTopImage2: {
       height: 200,
       width: 200,
       top: 3,
-      left: -6,
       position: "absolute",
     },
     rightTopImage: {
