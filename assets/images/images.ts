@@ -15,3 +15,4 @@ export const scoreBoard = require('./onboarding/score-board.png');
 export const scoreBar = require('./onboarding/score-bar.png');
 export const mobileSeen = require('./onboarding/mobile-seen.png');
 export const doctor = require('./onboarding/doctor.png');
+export const earningLight = require('./landing-page/total-earning-light.png');

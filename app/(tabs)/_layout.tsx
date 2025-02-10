@@ -28,6 +28,7 @@ const TabsLayout = () => {
           borderRadius: 20,
           borderWidth: 1,
           borderColor: "rgba(132, 132, 132, 1)",
+          marginHorizontal: 14,
         },
         tabBarBackground: () => (
           <LinearGradient
@@ -46,14 +47,15 @@ const TabsLayout = () => {
           height: 43,
           marginTop: 16,
         },
-      }}>
+      }}
+    >
       <Tabs.Screen
-        name='home'
+        name="home"
         options={{
           title: "Home",
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <View style={{ alignItems: "center" }}>
+            <View style={{ width: 80, alignItems: "center" }}>
               <HomeSvg width={24} height={21} fill={color} />
               <Text style={{ color, fontSize: 12, marginTop: 4 }}>Home</Text>
             </View>
@@ -62,12 +64,12 @@ const TabsLayout = () => {
       />
 
       <Tabs.Screen
-        name='challenge'
+        name="challenge"
         options={{
           title: "Challenges",
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <View style={{ alignItems: "center" }}>
+            <View style={{ width: 80, alignItems: "center" }}>
               {/* <Feather name='target' size={24} color={color} /> */}
               <GoalSvg
                 width={24}
@@ -84,12 +86,12 @@ const TabsLayout = () => {
       />
 
       <Tabs.Screen
-        name='invite'
+        name="invite"
         options={{
           title: "Invite",
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <View style={{ alignItems: "center" }}>
+            <View style={{ width: 80, alignItems: "center", }}>
               <InviteSvg width={24} height={24} fill={color} />
               <Text style={{ color, fontSize: 12, marginTop: 4 }}>Invite</Text>
             </View>
@@ -98,12 +100,12 @@ const TabsLayout = () => {
       />
 
       <Tabs.Screen
-        name='users'
+        name="users"
         options={{
           title: "Socialize",
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <View style={{ alignItems: "center" }}>
+            <View style={{ width: 80, alignItems: "center" }}>
               <SocializeSvg width={24} height={24} fill={color} />
               <Text style={{ color, fontSize: 12, marginTop: 4 }}>
                 Socialize
