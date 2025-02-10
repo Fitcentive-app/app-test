@@ -5,7 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const Challenge = () => {
   useEffect(() => {
-    router.push('/contact-form');
+    router.push('/faq-page');
   },[])
   return (
     <SafeAreaView
