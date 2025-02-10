@@ -5,7 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const Challenge = () => {
   useEffect(() => {
-    router.push('/challenge-preview');
+    router.push('/account-information');
   },[])
   return (
     <SafeAreaView
