@@ -15,7 +15,7 @@ import Trophy from "../assets/images/share-slider/trophy.svg";
 import FIcon from "../assets/images/share-slider/f-icon.svg";
 import CIcon from "../assets/images/share-slider/c-icon.svg";
 
-const ShareSlider = () => {
+const ImprovementSlider = () => {
   const swiperRef = useRef<Swiper>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const styles = createStyles();
@@ -120,15 +120,12 @@ const ShareSlider = () => {
           </LinearGradient>
         </View>
         <View style={{ flex: 1, backgroundColor: "green" }}></View>
-        <View style={{ flex: 1, backgroundColor: "green" }}></View>
-        <View style={{ flex: 1, backgroundColor: "green" }}></View>
-        <View style={{ flex: 1, backgroundColor: "green" }}></View>
       </Swiper>
     </SafeAreaPage>
   );
 };
 
-export default ShareSlider;
+export default ImprovementSlider;
 
 const createStyles = () =>
   StyleSheet.create({
@@ -169,7 +166,7 @@ const createStyles = () =>
       borderColor: "#7A7777",
     },
     subContainer: {
-      height: 380,
+      height: 370,
       borderWidth: 2,
       borderColor: "#7A7777",
       backgroundColor: "#1A1A1A",
@@ -187,6 +184,7 @@ const createStyles = () =>
       marginHorizontal: 20,
       marginTop: 16,
       paddingVertical: 10,
+      lineHeight: 26,
     },
     greenText: {
       color: "#00FFBB",

@@ -39,7 +39,8 @@ export default function RootLayout() {
       <Stack.Screen name='notification-preferences' />
       <Stack.Screen name='terms-of-use' />
       <Stack.Screen name='faq-page' />
-      <Stack.Screen name='share-slider' />
+      <Stack.Screen name='improvement-slider' />
+      <Stack.Screen name='leader-board' />
     </Stack>
   );
 }
