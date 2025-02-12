@@ -39,8 +39,10 @@ export default function RootLayout() {
       <Stack.Screen name='notification-preferences' />
       <Stack.Screen name='terms-of-use' />
       <Stack.Screen name='faq-page' />
-      <Stack.Screen name='improvement-slider' />
-      <Stack.Screen name='leader-board' />
+      <Stack.Screen name='slider-improvement' />
+      <Stack.Screen name='slider-leader-board' />
+      <Stack.Screen name='slider-challenge' />
+      <Stack.Screen name='slider-beat-friend' />
     </Stack>
   );
 }
