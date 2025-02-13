@@ -14,7 +14,7 @@ import Swiper from "react-native-swiper";
 import FIcon from "../assets/images/share-slider/f-icon.svg";
 import CIcon from "../assets/images/share-slider/c-icon.svg";
 
-const BeatFriendSlider = () => {
+export const BeatFriendSlider = () => {
   const swiperRef = useRef<Swiper>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const styles = createStyles();
@@ -109,8 +109,6 @@ const BeatFriendSlider = () => {
   );
 };
 
-export default BeatFriendSlider;
-
 const createStyles = () =>
   StyleSheet.create({
     buttonView: {
@@ -139,8 +137,7 @@ const createStyles = () =>
     container: {
       flex: 1,
       backgroundColor: "rgba(31, 31, 31, 0.8)",
-      justifyContent: "center",
-      marginTop: -50,
+      paddingTop: 30,
     },
     linearView: {
       marginHorizontal: 45,
@@ -177,9 +174,10 @@ const createStyles = () =>
       fontSize: 16,
       lineHeight: 18,
       marginTop: -8,
-      marginHorizontal: 28,
+      marginHorizontal: 65,
       color: "#CFCFCF",
       textAlign: "center",
+      fontFamily:'RiftSoft-Demi',
     },
     roundView: {
       height: 225,
@@ -218,7 +216,7 @@ const createStyles = () =>
     },
     textLoser: {
       color: "#FFFFFF",
-      fontFamily: "RiftSoft-Bold",
+      fontFamily: "RiftSoft-Demi",
       fontSize: 18,
     },
     textView: {

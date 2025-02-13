@@ -15,7 +15,7 @@ import Trophy from "../assets/images/share-slider/trophy.svg";
 import FIcon from "../assets/images/share-slider/f-icon.svg";
 import CIcon from "../assets/images/share-slider/c-icon.svg";
 
-const ImprovementSlider = () => {
+export const ImprovementSlider = () => {
   const swiperRef = useRef<Swiper>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const styles = createStyles();
@@ -125,8 +125,6 @@ const ImprovementSlider = () => {
   );
 };
 
-export default ImprovementSlider;
-
 const createStyles = () =>
   StyleSheet.create({
     buttonView: {
@@ -155,8 +153,7 @@ const createStyles = () =>
     container: {
       flex: 1,
       backgroundColor: "rgba(31, 31, 31, 0.8)",
-      justifyContent: "center",
-      marginTop: -50,
+      paddingTop: 30,
     },
     linearView: {
       marginHorizontal: 45,
@@ -225,7 +222,7 @@ const createStyles = () =>
     },
     text1: {
       color: "#00FFBB",
-      fontFamily: "RiftSoft-Bold",
+      fontFamily: "RiftSoft-Demi",
       fontSize: 18,
       marginTop: 8,
     },
@@ -237,7 +234,7 @@ const createStyles = () =>
     },
     text3: {
       color: "#FFFFFF",
-      fontFamily: "RiftSoft-Bold",
+      fontFamily: "RiftSoft-Demi",
       marginBottom: 8,
       fontSize: 18,
     },

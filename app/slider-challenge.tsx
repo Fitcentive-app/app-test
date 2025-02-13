@@ -15,7 +15,7 @@ import Trophy from "../assets/images/share-slider/trophy.svg";
 import FIcon from "../assets/images/share-slider/f-icon.svg";
 import CIcon from "../assets/images/share-slider/c-icon.svg";
 
-const ChallengeSlider = () => {
+export const ChallengeSlider = () => {
   const swiperRef = useRef<Swiper>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const styles = createStyles();
@@ -108,8 +108,6 @@ const ChallengeSlider = () => {
   );
 };
 
-export default ChallengeSlider;
-
 const createStyles = () =>
   StyleSheet.create({
     buttonView: {
@@ -138,8 +136,7 @@ const createStyles = () =>
     container: {
       flex: 1,
       backgroundColor: "rgba(31, 31, 31, 0.8)",
-      justifyContent: "center",
-      marginTop: -50,
+      paddingTop: 30,
     },
     linearView: {
       marginHorizontal: 45,
