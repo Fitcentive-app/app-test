@@ -11,8 +11,8 @@ import {
   View,
 } from "react-native";
 import Swiper from "react-native-swiper";
-import FIcon from "../assets/images/share-slider/f-icon.svg";
-import CIcon from "../assets/images/share-slider/c-icon.svg";
+import FIcon from "../assets/images/sliders-icon/f-icon.svg";
+import CIcon from "../assets/images/sliders-icon/c-icon.svg";
 
 export const BeatFriendSlider = () => {
   const swiperRef = useRef<Swiper>(null);
@@ -67,16 +67,19 @@ export const BeatFriendSlider = () => {
             <View style={styles.bottomView}>
               <View style={styles.leftTextView}>
                 <FIcon />
-                <CIcon />
+                <View style={styles.fcView}>
+                  <CIcon />
+                </View>
                 <Text style={styles.leftText}>FITCENTIVE.app</Text>
               </View>
               <Text style={styles.rightText}>HEALTH IS WEALTH</Text>
             </View>
             <View style={styles.subContainer}>
               <LinearGradient
-                colors={["#008360", "#00FFBB", "#C7FFF0", "#00FFBB", "#008360"]}
+                colors={["#008360","#008360", "#00FFBB","#00FFBB", "#C7FFF0", "#00FFBB", "#008360"]}
                 style={styles.roundView}
               >
+                <View style={styles.innerBorderView}></View>
                 <View style={styles.subRoundView}>
                   <Image
                     source={{
@@ -87,7 +90,7 @@ export const BeatFriendSlider = () => {
                   />
                 </View>
                 <LinearGradient
-                  colors={["#008360", "#008360", "#00FFBB"]}
+                  colors={["#008360","#008360", "#00FFBB"]}
                   style={styles.topLabel}
                 >
                   <Text style={styles.textLoser}>LOSER</Text>
@@ -177,7 +180,7 @@ const createStyles = () =>
       marginHorizontal: 65,
       color: "#CFCFCF",
       textAlign: "center",
-      fontFamily:'RiftSoft-Demi',
+      fontFamily: "RiftSoft-Demi",
     },
     roundView: {
       height: 225,
@@ -186,6 +189,16 @@ const createStyles = () =>
       marginTop: 22,
       alignItems: "center",
       justifyContent: "center",
+      borderWidth: 1,
+      borderColor: "#00FFBB",
+    },
+    innerBorderView: {
+      height: 195,
+      width: 195,
+      borderRadius: 195,
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "#00FFBB",
     },
     subRoundView: {
       height: 193,
@@ -196,6 +209,7 @@ const createStyles = () =>
       alignItems: "center",
       justifyContent: "center",
       backgroundColor: "#00A77B",
+      position: "absolute",
     },
     centerImage: {
       height: "100%",
@@ -274,6 +288,8 @@ const createStyles = () =>
       alignItems: "center",
       justifyContent: "center",
       flexDirection: "row",
+      borderWidth: 1,
+      borderColor: "#00FFBB",
     },
     image: {
       height: 52,
@@ -291,6 +307,7 @@ const createStyles = () =>
       flexDirection: "row",
       alignItems: "center",
     },
+    fcView: { marginTop: 4, marginLeft: -4 },
     leftText: {
       marginLeft: 8,
       fontSize: 18,

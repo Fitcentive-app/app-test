@@ -11,8 +11,9 @@ import {
   View,
 } from "react-native";
 import Swiper from "react-native-swiper";
-import FIcon from "../assets/images/share-slider/f-icon.svg";
-import CIcon from "../assets/images/share-slider/c-icon.svg";
+import FIcon from "../assets/images/sliders-icon/f-icon.svg";
+import CIcon from "../assets/images/sliders-icon/c-icon.svg";
+import Svg, { Polygon } from "react-native-svg";
 
 export const LeaderBoard = () => {
   const swiperRef = useRef<Swiper>(null);
@@ -67,8 +68,8 @@ export const LeaderBoard = () => {
             <View style={styles.borderContainer}>
               <View style={styles.subContainer}>
                 <Text style={styles.topHeader}>
-                  <Text style={styles.greenText}>ELLIS OSBORN</Text> EARNED 2ND
-                  PLACE IN HIS WORKOUT CHALLENGE
+                  <Text style={styles.greenText}>ELLIS OSBORN</Text> EARNED 24TH
+                  PLACE OUT OF 125 CHALLENGERS
                 </Text>
                 <Text style={styles.text1}>DEC 24, 2024</Text>
                 <LinearGradient
@@ -93,7 +94,7 @@ export const LeaderBoard = () => {
                   <>
                     <View style={styles.bottomViewLine} />
 
-                    <View style={styles.topView}>
+                    <View style={[styles.topView, { marginLeft: -2 }]}>
                       <Text style={styles.numberTop}>01</Text>
                       <View style={styles.subTopView}>
                         <View style={styles.topLine} />
@@ -110,8 +111,8 @@ export const LeaderBoard = () => {
                   <>
                     <View style={[styles.bottomViewLine, { marginLeft: 22 }]} />
 
-                    <View style={[styles.topView, { marginLeft: 65 }]}>
-                    <Text style={styles.numberTop}>13</Text>
+                    <View style={[styles.topView, { marginLeft: 53 }]}>
+                      <Text style={styles.numberTop}>13</Text>
                       <View style={styles.subTopView}>
                         <View style={styles.topLine} />
                         <View style={styles.topRoundView}>
@@ -119,15 +120,65 @@ export const LeaderBoard = () => {
                         </View>
                       </View>
                     </View>
-                    <View style={[styles.subBottomView, { marginLeft: -41 }]}>
+                    <View style={styles.subBottomView}>
                       <Text style={styles.bottomText}>BRETT OSBORN</Text>
                     </View>
                   </>
                   <>
                     <View style={[styles.bottomViewLine, { marginLeft: 21 }]} />
 
-                    <View style={[styles.topView, { marginLeft: 130 }]}>
-                    <Text style={styles.numberTop}>32</Text>
+                    <View style={[styles.topView, { marginLeft: 107 }]}>
+                      <Text
+                        style={[
+                          styles.numberTop,
+                          { marginTop: -32, fontSize: 30, color: "#00FFBB" },
+                        ]}
+                      >
+                        3<Text style={styles.numberTopRD}>RD</Text>
+                      </Text>
+                      <View style={styles.subTopView}>
+                        <View
+                          style={[
+                            styles.topLine,
+                            { borderBottomColor: "#00FFBB" },
+                          ]}
+                        />
+                        <View style={{ alignSelf: "center", marginTop: -8 }}>
+                          <Svg height="55" width="50" viewBox="0 0 100 100">
+                            <Polygon
+                              points="50,15 61,38 85,38 66,58 71,86 50,70 29,86 34,58 15,38 39,38"
+                              fill="#00FFBB"
+                              stroke="black"
+                              strokeWidth="1"
+                            />
+                          </Svg>
+                          <Text
+                            style={[
+                              styles.topText,
+                              {
+                                position: "absolute",
+                                width: 50,
+                                top: 19,
+                                color: "#000",
+                                fontSize: 16,
+                                textAlign: "center",
+                              },
+                            ]}
+                          >
+                            74
+                          </Text>
+                        </View>
+                      </View>
+                    </View>
+                    <View style={styles.subBottomView}>
+                      <Text style={styles.bottomText}>ELLIS OSBORN</Text>
+                    </View>
+                  </>
+                  <>
+                    <View style={[styles.bottomViewLine, { marginLeft: 20 }]} />
+
+                    <View style={[styles.topView, { marginLeft: 160 }]}>
+                      <Text style={styles.numberTop}>48</Text>
                       <View style={styles.subTopView}>
                         <View style={styles.topLine} />
                         <View style={styles.topRoundView}>
@@ -135,15 +186,15 @@ export const LeaderBoard = () => {
                         </View>
                       </View>
                     </View>
-                    <View style={[styles.subBottomView, { marginLeft: -41 }]}>
-                      <Text style={styles.bottomText}>ELLIS OSBORN</Text>
+                    <View style={styles.subBottomView}>
+                      <Text style={styles.bottomText}>BRETT OSBORN</Text>
                     </View>
                   </>
                   <>
                     <View style={[styles.bottomViewLine, { marginLeft: 20 }]} />
 
-                    <View style={[styles.topView, { marginLeft: 195 }]}>
-                    <Text style={styles.numberTop}>48</Text>
+                    <View style={[styles.topView, { marginLeft: 213 }]}>
+                      <Text style={styles.numberTop}>48</Text>
                       <View style={styles.subTopView}>
                         <View style={styles.topLine} />
                         <View style={styles.topRoundView}>
@@ -151,7 +202,7 @@ export const LeaderBoard = () => {
                         </View>
                       </View>
                     </View>
-                    <View style={[styles.subBottomView, { marginLeft: -41 }]}>
+                    <View style={styles.subBottomView}>
                       <Text style={styles.bottomText}>BRETT OSBORN</Text>
                     </View>
                   </>
@@ -171,7 +222,9 @@ export const LeaderBoard = () => {
             <View style={styles.bottomView}>
               <View style={styles.leftTextView}>
                 <FIcon />
-                <CIcon />
+                <View style={styles.fcView}>
+                  <CIcon />
+                </View>
                 <Text style={styles.leftText}>FITCENTIVE.app</Text>
               </View>
               <Text style={styles.rightText}>HEALTH IS WEALTH</Text>
@@ -251,15 +304,6 @@ const createStyles = () =>
     greenText: {
       color: "#00FFBB",
     },
-    roundView: {
-      height: 237,
-      width: 237,
-      borderRadius: 237,
-      position: "absolute",
-      bottom: 22,
-      alignItems: "center",
-      justifyContent: "center",
-    },
     subRoundView: {
       height: 193,
       width: 193,
@@ -334,6 +378,8 @@ const createStyles = () =>
       alignItems: "center",
       justifyContent: "center",
       alignSelf: "center",
+      borderWidth: 1,
+      borderColor: "#00FFBB",
     },
     imageView: {
       height: 51,
@@ -359,6 +405,7 @@ const createStyles = () =>
       flexDirection: "row",
       alignItems: "center",
     },
+    fcView: { marginTop: 4, marginLeft: -4 },
     leftText: {
       marginLeft: 8,
       fontSize: 18,
@@ -373,43 +420,39 @@ const createStyles = () =>
     linesMainView: {
       flex: 1,
       flexDirection: "row",
-      marginHorizontal: 18,
-    },
-    bottomViewLine: {
-      height: 140,
-      width: 44,
-      marginLeft: 40,
-      marginTop: 60,
-      borderWidth: 0.75,
-      borderColor: "#8E8D8D",
-      borderStyle: "dashed",
-      transform: [{ rotate: "138deg" }],
+      marginHorizontal: 16,
     },
     topView: {
-      height: 80,
-      width: 56,
+      height: 58,
+      width: 42,
       borderWidth: 0.75,
       borderColor: "#8E8D8D",
       borderStyle: "dashed",
       position: "absolute",
-      bottom: 112,
+      bottom: 114,
     },
     numberTop: {
-      marginTop: -20,
+      marginTop: -18,
       color: "#FFFFFF",
-      fontSize: 18,
-      fontFamily: "RiftSoft-Medium",
+      fontSize: 14,
+      fontFamily: "RiftSoft-Bold",
+      textAlign: "center",
+    },
+    numberTopRD: {
+      color: "#00FFBB",
+      fontSize: 15,
+      fontFamily: "RiftSoft-Bold",
       textAlign: "center",
     },
     subTopView: {
-      height: 82,
-      width: 54.5,
+      height: 60,
+      width: 40.5,
       backgroundColor: "#232323",
       bottom: -1,
       position: "absolute",
     },
     topLine: {
-      height: 15,
+      height: 10,
       backgroundColor: "#1A1A1A",
       borderBottomWidth: 1,
       borderBottomColor: "#8E8D8D",
@@ -420,7 +463,7 @@ const createStyles = () =>
       borderRadius: 31,
       backgroundColor: "#1A1A1A",
       alignSelf: "center",
-      marginTop: 10,
+      marginTop: 5,
       alignItems: "center",
       justifyContent: "center",
     },
@@ -429,18 +472,31 @@ const createStyles = () =>
       fontSize: 20,
       fontFamily: "RiftSoft-Bold",
     },
+    bottomViewLine: {
+      height: 140,
+      width: 32,
+      marginLeft: 40,
+      marginTop: 60,
+      borderWidth: 0.75,
+      borderColor: "#8E8D8D",
+      borderStyle: "dashed",
+      transform: [{ rotate: "138deg" }],
+      backgroundColor: "#232323",
+      borderTopRightRadius: 30,
+    },
     subBottomView: {
       height: 140,
-      width: 42,
-      marginLeft: -41,
+      width: 30,
+      marginLeft: -29,
       transform: [{ rotate: "138deg" }],
       marginTop: 62,
       backgroundColor: "#232323",
+      borderRadius: 30,
     },
     bottomText: {
       transform: [{ rotate: "270deg" }],
       width: 150,
-      marginLeft: -54,
+      marginLeft: -60,
       top: 35,
       color: "#A6A6A6",
       fontSize: 12,

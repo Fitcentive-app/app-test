@@ -11,9 +11,12 @@ import {
   View,
 } from "react-native";
 import Swiper from "react-native-swiper";
-import Trophy from "../assets/images/share-slider/trophy.svg";
-import FIcon from "../assets/images/share-slider/f-icon.svg";
-import CIcon from "../assets/images/share-slider/c-icon.svg";
+import Trophy from "../assets/images/sliders-icon/trophy.svg";
+import FIcon from "../assets/images/sliders-icon/f-icon.svg";
+import CIcon from "../assets/images/sliders-icon/c-icon.svg";
+import GArrrow from "../assets/images/sliders-icon/green-arrow.svg";
+import GRightArrrow from "../assets/images/sliders-icon/green-right-arrow.svg";
+import { Svg, Defs, RadialGradient, Circle, Stop } from "react-native-svg";
 
 export const ImprovementSlider = () => {
   const swiperRef = useRef<Swiper>(null);
@@ -75,7 +78,25 @@ export const ImprovementSlider = () => {
                 style={styles.roundView}
               >
                 <View style={styles.subRoundView}>
-                  <View style={styles.circle} />
+                  <Svg height="200" width="200">
+                    <Defs>
+                      <RadialGradient
+                        id="blackRadial"
+                        cx="50%"
+                        cy="50%"
+                        r="50%"
+                      >
+                        <Stop offset="60%" stopColor="black" stopOpacity="1" />
+                        <Stop offset="100%" stopColor="black" stopOpacity="0" />
+                      </RadialGradient>
+                    </Defs>
+                    <Circle
+                      cx="100"
+                      cy="100"
+                      r="100"
+                      fill="url(#blackRadial)"
+                    />
+                  </Svg>
                   <View style={styles.textView}>
                     <Text style={styles.text1}>I FINISHED MY</Text>
                     <Text style={styles.text2}>FIRST</Text>
@@ -112,14 +133,296 @@ export const ImprovementSlider = () => {
             <View style={styles.bottomView}>
               <View style={styles.leftTextView}>
                 <FIcon />
-                <CIcon />
+                <View style={styles.fcView}>
+                  <CIcon />
+                </View>
                 <Text style={styles.leftText}>FITCENTIVE.app</Text>
               </View>
               <Text style={styles.rightText}>HEALTH IS WEALTH</Text>
             </View>
           </LinearGradient>
         </View>
-        <View style={{ flex: 1, backgroundColor: "green" }}></View>
+        {/* 2rd Slide */}
+        <View style={styles.container}>
+          <Text style={styles.headerText}>CHALLENGE MONEY</Text>
+          <LinearGradient
+            colors={["#393939", "#393939", "#707070"]}
+            style={styles.linearView}
+          >
+            <View style={styles.subContainer}>
+              <Text style={styles.topHeader}>
+                <Text style={styles.greenText}>ELLIS OSBORN</Text> IMPROVED BY
+                INVESTING IN HEALTH
+              </Text>
+              <LinearGradient
+                colors={["#008360", "#00FFBB", "#C7FFF0", "#00FFBB", "#008360"]}
+                style={styles.roundView}
+              >
+                <View style={styles.subRoundView}>
+                  <Svg height="200" width="200">
+                    <Defs>
+                      <RadialGradient
+                        id="blackRadial"
+                        cx="50%"
+                        cy="50%"
+                        r="50%"
+                      >
+                        <Stop offset="60%" stopColor="black" stopOpacity="1" />
+                        <Stop offset="100%" stopColor="black" stopOpacity="0" />
+                      </RadialGradient>
+                    </Defs>
+                    <Circle
+                      cx="100"
+                      cy="100"
+                      r="100"
+                      fill="url(#blackRadial)"
+                    />
+                  </Svg>
+                  <View style={{ position: "absolute", bottom: 0, left: 4 }}>
+                    <GRightArrrow />
+                    <View
+                      style={{
+                        width: 185,
+                        flexDirection: "row",
+                        top: -85,
+                        marginLeft: -8,
+                        justifyContent: "center",
+                        position: "absolute",
+                      }}
+                    >
+                      <Text style={styles.priceText}>2</Text>
+                      <Text style={styles.dollorText}>%</Text>
+                      <View style={{ marginTop: 10, marginLeft: 4 }}>
+                        <Text style={styles.betterText}>BETTER</Text>
+                        <Text style={styles.betterText}>SLEEP</Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </LinearGradient>
+            </View>
+            <View style={styles.halfView}>
+              <View style={styles.subHalfView}>
+                <LinearGradient
+                  colors={[
+                    "#008360",
+                    "#00FFBB",
+                    "#C7FFF0",
+                    "#00FFBB",
+                    "#008360",
+                  ]}
+                  style={styles.imageRoundView}
+                >
+                  <View style={styles.imageView}>
+                    <Image
+                      source={{
+                        uri: "https://s3-alpha-sig.figma.com/img/a16b/b3cc/89541ce3c27b79db09431b7accb58abc?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mwCpG-ucj1HL2yJgPgyxabSiDeD57GgStzceUIdM4hEj47HsN2dX12oR1QhzRHW4O7D1gR~wCzo4vqE2fztQseoSy0RYcRsT2TtV9GjFjE-9XTay8blC6THhO1eC7O6UtoNLVUtKkhHiG0~EWTU2KnsCq9jdRgQes4oj6Q85QJYE427vyndsRqM6vCOYTTAK4fLJ5OOCIPlQPPns77SGTCIXV1YYkQKiJHP1q99ot4plxLGy7Fot~m4D-ddbXfCOKQUUVpMtt0y372Uqf-nQN98Ce81b3YwVmgp6OkU7mr1i-7juSP1sc0iktLqjsi2Eiv4iS4s3BjFiUck04ts2uQ__",
+                      }}
+                      resizeMode="stretch"
+                      style={styles.image}
+                    />
+                  </View>
+                </LinearGradient>
+              </View>
+            </View>
+            <View style={styles.bottomView}>
+              <View style={styles.leftTextView}>
+                <FIcon />
+                <View style={styles.fcView}>
+                  <CIcon />
+                </View>
+                <Text style={styles.leftText}>FITCENTIVE.app</Text>
+              </View>
+              <Text style={styles.rightText}>HEALTH IS WEALTH</Text>
+            </View>
+          </LinearGradient>
+        </View>
+        {/* 3rd Slide */}
+        <View style={styles.container}>
+          <Text style={styles.headerText}>CHALLENGE MONEY</Text>
+          <LinearGradient
+            colors={["#393939", "#393939", "#707070"]}
+            style={styles.linearView}
+          >
+            <View style={styles.subContainer}>
+              <Text style={styles.topHeader}>
+                <Text style={styles.greenText}>ELLIS OSBORN</Text> EARNED MONEY
+                INVESTING IN HIS HEALTH
+              </Text>
+              <LinearGradient
+                colors={["#008360", "#00FFBB", "#C7FFF0", "#00FFBB", "#008360"]}
+                style={styles.roundView}
+              >
+                <View style={styles.subRoundView}>
+                  <Svg height="200" width="200">
+                    <Defs>
+                      <RadialGradient
+                        id="blackRadial"
+                        cx="50%"
+                        cy="50%"
+                        r="50%"
+                      >
+                        <Stop offset="60%" stopColor="black" stopOpacity="1" />
+                        <Stop offset="100%" stopColor="black" stopOpacity="0" />
+                      </RadialGradient>
+                    </Defs>
+                    <Circle
+                      cx="100"
+                      cy="100"
+                      r="100"
+                      fill="url(#blackRadial)"
+                    />
+                  </Svg>
+                  <View style={{ position: "absolute", bottom: 0, left: 4 }}>
+                    <GArrrow />
+                    <View
+                      style={{
+                        width: 185,
+                        flexDirection: "row",
+                        top: -85,
+                        justifyContent: "center",
+                        position: "absolute",
+                      }}
+                    >
+                      <Text style={styles.dollorText}>$</Text>
+                      <View>
+                        <Text style={styles.priceText}>25</Text>
+                        <Text style={styles.dateText}>DEC 24, 2024</Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </LinearGradient>
+            </View>
+            <View style={styles.halfView}>
+              <View style={styles.subHalfView}>
+                <LinearGradient
+                  colors={[
+                    "#008360",
+                    "#00FFBB",
+                    "#C7FFF0",
+                    "#00FFBB",
+                    "#008360",
+                  ]}
+                  style={styles.imageRoundView}
+                >
+                  <View style={styles.imageView}>
+                    <Image
+                      source={{
+                        uri: "https://s3-alpha-sig.figma.com/img/a16b/b3cc/89541ce3c27b79db09431b7accb58abc?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mwCpG-ucj1HL2yJgPgyxabSiDeD57GgStzceUIdM4hEj47HsN2dX12oR1QhzRHW4O7D1gR~wCzo4vqE2fztQseoSy0RYcRsT2TtV9GjFjE-9XTay8blC6THhO1eC7O6UtoNLVUtKkhHiG0~EWTU2KnsCq9jdRgQes4oj6Q85QJYE427vyndsRqM6vCOYTTAK4fLJ5OOCIPlQPPns77SGTCIXV1YYkQKiJHP1q99ot4plxLGy7Fot~m4D-ddbXfCOKQUUVpMtt0y372Uqf-nQN98Ce81b3YwVmgp6OkU7mr1i-7juSP1sc0iktLqjsi2Eiv4iS4s3BjFiUck04ts2uQ__",
+                      }}
+                      resizeMode="stretch"
+                      style={styles.image}
+                    />
+                  </View>
+                </LinearGradient>
+              </View>
+            </View>
+            <View style={styles.bottomView}>
+              <View style={styles.leftTextView}>
+                <FIcon />
+                <View style={styles.fcView}>
+                  <CIcon />
+                </View>
+                <Text style={styles.leftText}>FITCENTIVE.app</Text>
+              </View>
+              <Text style={styles.rightText}>HEALTH IS WEALTH</Text>
+            </View>
+          </LinearGradient>
+        </View>
+        {/* 4th Slide */}
+        <View style={styles.container}>
+          <Text style={styles.headerText}>TOTAL MONEY EARNED</Text>
+          <LinearGradient
+            colors={["#393939", "#393939", "#707070"]}
+            style={styles.linearView}
+          >
+            <View style={styles.subContainer}>
+              <Text style={styles.topHeader}>
+                <Text style={styles.greenText}>ELLIS OSBORN</Text> EARNED MONEY
+                INVESTING IN HIS HEALTH
+              </Text>
+              <LinearGradient
+                colors={["#008360", "#00FFBB", "#C7FFF0", "#00FFBB", "#008360"]}
+                style={styles.roundView}
+              >
+                <View style={styles.subRoundView}>
+                  <Svg height="200" width="200">
+                    <Defs>
+                      <RadialGradient
+                        id="blackRadial"
+                        cx="50%"
+                        cy="50%"
+                        r="50%"
+                      >
+                        <Stop offset="60%" stopColor="black" stopOpacity="1" />
+                        <Stop offset="100%" stopColor="black" stopOpacity="0" />
+                      </RadialGradient>
+                    </Defs>
+                    <Circle
+                      cx="100"
+                      cy="100"
+                      r="100"
+                      fill="url(#blackRadial)"
+                    />
+                  </Svg>
+                  <View style={{ position: "absolute", bottom: 0, left: 4 }}>
+                    <GArrrow />
+                    <View
+                      style={{
+                        width: 185,
+                        flexDirection: "row",
+                        top: -85,
+                        justifyContent: "center",
+                        position: "absolute",
+                      }}
+                    >
+                      <Text style={styles.dollorText}>$</Text>
+                      <View>
+                        <Text style={styles.priceText}>225</Text>
+                        <Text style={styles.dateText}>LIFETIME EARNINGS</Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </LinearGradient>
+            </View>
+            <View style={styles.halfView}>
+              <View style={styles.subHalfView}>
+                <LinearGradient
+                  colors={[
+                    "#008360",
+                    "#00FFBB",
+                    "#C7FFF0",
+                    "#00FFBB",
+                    "#008360",
+                  ]}
+                  style={styles.imageRoundView}
+                >
+                  <View style={styles.imageView}>
+                    <Image
+                      source={{
+                        uri: "https://s3-alpha-sig.figma.com/img/a16b/b3cc/89541ce3c27b79db09431b7accb58abc?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mwCpG-ucj1HL2yJgPgyxabSiDeD57GgStzceUIdM4hEj47HsN2dX12oR1QhzRHW4O7D1gR~wCzo4vqE2fztQseoSy0RYcRsT2TtV9GjFjE-9XTay8blC6THhO1eC7O6UtoNLVUtKkhHiG0~EWTU2KnsCq9jdRgQes4oj6Q85QJYE427vyndsRqM6vCOYTTAK4fLJ5OOCIPlQPPns77SGTCIXV1YYkQKiJHP1q99ot4plxLGy7Fot~m4D-ddbXfCOKQUUVpMtt0y372Uqf-nQN98Ce81b3YwVmgp6OkU7mr1i-7juSP1sc0iktLqjsi2Eiv4iS4s3BjFiUck04ts2uQ__",
+                      }}
+                      resizeMode="stretch"
+                      style={styles.image}
+                    />
+                  </View>
+                </LinearGradient>
+              </View>
+            </View>
+            <View style={styles.bottomView}>
+              <View style={styles.leftTextView}>
+                <FIcon />
+                <View style={styles.fcView}>
+                  <CIcon />
+                </View>
+                <Text style={styles.leftText}>FITCENTIVE.app</Text>
+              </View>
+              <Text style={styles.rightText}>HEALTH IS WEALTH</Text>
+            </View>
+          </LinearGradient>
+        </View>
       </Swiper>
     </SafeAreaPage>
   );
@@ -194,27 +497,45 @@ const createStyles = () =>
       bottom: 22,
       alignItems: "center",
       justifyContent: "center",
+      borderWidth: 1,
+      borderColor: "#00FFBB",
     },
     subRoundView: {
-      height: 193,
-      width: 193,
+      height: 200,
+      width: 200,
       borderRadius: 193,
       borderWidth: 4,
       borderColor: "#232323",
       alignItems: "center",
       justifyContent: "center",
       backgroundColor: "#00A77B",
+      overflow: "hidden",
     },
-    circle: {
-      width: 140, // Adjust size as needed
-      height: 140,
-      backgroundColor: "rgba(0, 0, 0, 0.7)",
-      borderRadius: 140, // Half of width/height to make it a circle
-      shadowColor: "#000",
-      shadowOffset: { width: 0, height: 0 },
-      shadowOpacity: 1,
-      shadowRadius: 5,
-      elevation: 20, // Required for Android shadow
+    priceText: {
+      color: "#FFFFFF",
+      fontFamily: "RiftSoft-Bold",
+      fontSize: 110,
+      textShadowColor: "#000",
+      textShadowOffset: { width: 0, height: 0 },
+      textShadowRadius: 5,
+    },
+    dollorText: {
+      color: "#FFFFFF",
+      fontFamily: "RiftSoft-Bold",
+      fontSize: 50,
+      top: 20,
+      textShadowColor: "#000",
+      textShadowOffset: { width: 0, height: 0 },
+      textShadowRadius: 5,
+    },
+    betterText: {
+      color: "#FFFFFF",
+      fontFamily: "RiftSoft-Bold",
+      fontSize: 16,
+      top: 20,
+      textShadowColor: "#000",
+      textShadowOffset: { width: 0, height: 0 },
+      textShadowRadius: 5,
     },
     textView: {
       position: "absolute",
@@ -225,18 +546,37 @@ const createStyles = () =>
       fontFamily: "RiftSoft-Demi",
       fontSize: 18,
       marginTop: 8,
+      textShadowColor: "#000",
+      textShadowOffset: { width: 0, height: 0 },
+      textShadowRadius: 5,
     },
     text2: {
       color: "#FFFFFF",
       fontFamily: "RiftSoft-Bold",
       fontSize: 75,
       marginVertical: -13,
+      textShadowColor: "#000",
+      textShadowOffset: { width: 0, height: 0 },
+      textShadowRadius: 5,
+    },
+    dateText: {
+      color: "#FFFFFF",
+      fontFamily: "RiftSoft-Demi",
+      fontSize: 18,
+      marginTop: -22,
+      marginLeft: 4,
+      textShadowColor: "#000",
+      textShadowOffset: { width: 0, height: 0 },
+      textShadowRadius: 5,
     },
     text3: {
       color: "#FFFFFF",
       fontFamily: "RiftSoft-Demi",
       marginBottom: 8,
       fontSize: 18,
+      textShadowColor: "#000",
+      textShadowOffset: { width: 0, height: 0 },
+      textShadowRadius: 5,
     },
     halfView: {
       width: 94,
@@ -245,9 +585,9 @@ const createStyles = () =>
       borderTopLeftRadius: 44,
       borderTopRightRadius: 44,
       bottom: 60,
-      right: 0,
+      right: 4,
       position: "absolute",
-      transform: [{ rotate: "138deg" }],
+      transform: [{ rotate: "140deg" }],
     },
     subHalfView: {
       width: 90,
@@ -270,6 +610,8 @@ const createStyles = () =>
       top: 14,
       alignItems: "center",
       justifyContent: "center",
+      borderWidth: 1,
+      borderColor: "#00FFBB",
     },
     imageView: {
       height: 51,
@@ -297,6 +639,7 @@ const createStyles = () =>
       flexDirection: "row",
       alignItems: "center",
     },
+    fcView: { marginTop: 4, marginLeft: -4 },
     leftText: {
       marginLeft: 8,
       fontSize: 18,
