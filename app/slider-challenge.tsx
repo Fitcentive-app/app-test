@@ -97,7 +97,10 @@ export const ChallengeSlider = () => {
               </Text>
               <LinearGradient
                 colors={["#00FFBB", "#008360"]}
-                style={styles.imageRoundView}
+                style={[
+                  styles.imageRoundView,
+                  { height: 56, width: 56, right: 30, bottom: 130 },
+                ]}
               >
                 <FIcon />
                 <View style={styles.fcView}>

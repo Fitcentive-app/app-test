@@ -106,7 +106,6 @@ export const BeatFriendSlider = () => {
             </View>
           </LinearGradient>
         </View>
-        <View style={{ flex: 1, backgroundColor: "green" }}></View>
       </Swiper>
     </SafeAreaPage>
   );
