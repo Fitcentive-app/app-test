@@ -109,25 +109,47 @@ export const LeaderBoard = () => {
                     </View>
                   </>
                   <>
-                    <View style={[styles.bottomViewLine, { marginLeft: 22 }]} />
+                    <View
+                      style={[
+                        styles.bottomViewLine,
+                        { marginLeft: 22, backgroundColor: "#000" },
+                      ]}
+                    />
 
                     <View style={[styles.topView, { marginLeft: 53 }]}>
                       <Text style={styles.numberTop}>13</Text>
-                      <View style={styles.subTopView}>
+                      <View
+                        style={[styles.subTopView, { backgroundColor: "#000" }]}
+                      >
                         <View style={styles.topLine} />
-                        <View style={styles.topRoundView}>
+                        <View
+                          style={[
+                            styles.topRoundView,
+                            { backgroundColor: "#393939" },
+                          ]}
+                        >
                           <Text style={styles.topText}>78</Text>
                         </View>
                       </View>
                     </View>
-                    <View style={styles.subBottomView}>
+                    <View
+                      style={[
+                        styles.subBottomView,
+                        { backgroundColor: "#000" },
+                      ]}
+                    >
                       <Text style={styles.bottomText}>BRETT OSBORN</Text>
                     </View>
                   </>
                   <>
-                    <View style={[styles.bottomViewLine, { marginLeft: 21 }]} />
+                    <View
+                      style={[
+                        styles.bottomViewLine,
+                        { marginLeft: 21, backgroundColor: "#008360" },
+                      ]}
+                    />
 
-                    <View style={[styles.topView, { marginLeft: 107 }]}>
+                    <View style={[styles.topView, { marginLeft: 106 }]}>
                       <Text
                         style={[
                           styles.numberTop,
@@ -136,12 +158,15 @@ export const LeaderBoard = () => {
                       >
                         3<Text style={styles.numberTopRD}>RD</Text>
                       </Text>
-                      <View style={styles.subTopView}>
-                        <View
-                          style={[
-                            styles.topLine,
-                            { borderBottomColor: "#00FFBB" },
-                          ]}
+                      <View
+                        style={[
+                          styles.subTopView,
+                          { backgroundColor: "#008360" },
+                        ]}
+                      >
+                        <LinearGradient
+                          colors={["#232323", "#008360"]}
+                          style={[styles.linearTopLine, {}]}
                         />
                         <View style={{ alignSelf: "center", marginTop: -8 }}>
                           <Svg height="55" width="50" viewBox="0 0 100 100">
@@ -170,23 +195,50 @@ export const LeaderBoard = () => {
                         </View>
                       </View>
                     </View>
-                    <View style={styles.subBottomView}>
-                      <Text style={styles.bottomText}>ELLIS OSBORN</Text>
-                    </View>
+                    <LinearGradient
+                      colors={["#232323", "#008360", "#008360"]}
+                      style={styles.subBottomView}
+                    >
+                      <Text
+                        style={[
+                          styles.bottomText,
+                          { color: "#FFFFFF", fontSize: 16 },
+                        ]}
+                      >
+                        ELLIS OSBORN
+                      </Text>
+                    </LinearGradient>
                   </>
                   <>
-                    <View style={[styles.bottomViewLine, { marginLeft: 20 }]} />
+                    <View
+                      style={[
+                        styles.bottomViewLine,
+                        { marginLeft: 20, backgroundColor: "#000" },
+                      ]}
+                    />
 
                     <View style={[styles.topView, { marginLeft: 160 }]}>
                       <Text style={styles.numberTop}>48</Text>
-                      <View style={styles.subTopView}>
+                      <View
+                        style={[styles.subTopView, { backgroundColor: "#000" }]}
+                      >
                         <View style={styles.topLine} />
-                        <View style={styles.topRoundView}>
+                        <View
+                          style={[
+                            styles.topRoundView,
+                            { backgroundColor: "#393939" },
+                          ]}
+                        >
                           <Text style={styles.topText}>65</Text>
                         </View>
                       </View>
                     </View>
-                    <View style={styles.subBottomView}>
+                    <View
+                      style={[
+                        styles.subBottomView,
+                        { backgroundColor: "#000" },
+                      ]}
+                    >
                       <Text style={styles.bottomText}>BRETT OSBORN</Text>
                     </View>
                   </>
@@ -231,7 +283,85 @@ export const LeaderBoard = () => {
             </View>
           </LinearGradient>
         </View>
-        <View style={{ flex: 1, backgroundColor: "green" }}></View>
+        {/* LEADERBOARD */}
+        <View style={styles.container}>
+          <Text style={styles.headerText}>LEADERBOARD</Text>
+          <LinearGradient
+            colors={["#393939", "#393939", "#707070"]}
+            style={styles.linearView}
+          >
+            <View style={styles.borderContainer}>
+              <View style={styles.subContainer}>
+                <Text style={styles.topHeader}>
+                  <Text style={styles.greenText}>ELLIS OSBORN</Text> EARNED 2ND
+                  PLACE IN HIS WORKOUT CHALLENGE
+                </Text>
+                <Text style={styles.text1}>DEC 24, 2024</Text>
+                <LinearGradient
+                  colors={[
+                    "#008360",
+                    "#00FFBB",
+                    "#C7FFF0",
+                    "#00FFBB",
+                    "#008360",
+                  ]}
+                  style={styles.imageRoundView2}
+                >
+                  <Image
+                    source={{
+                      uri: "https://s3-alpha-sig.figma.com/img/a16b/b3cc/89541ce3c27b79db09431b7accb58abc?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mwCpG-ucj1HL2yJgPgyxabSiDeD57GgStzceUIdM4hEj47HsN2dX12oR1QhzRHW4O7D1gR~wCzo4vqE2fztQseoSy0RYcRsT2TtV9GjFjE-9XTay8blC6THhO1eC7O6UtoNLVUtKkhHiG0~EWTU2KnsCq9jdRgQes4oj6Q85QJYE427vyndsRqM6vCOYTTAK4fLJ5OOCIPlQPPns77SGTCIXV1YYkQKiJHP1q99ot4plxLGy7Fot~m4D-ddbXfCOKQUUVpMtt0y372Uqf-nQN98Ce81b3YwVmgp6OkU7mr1i-7juSP1sc0iktLqjsi2Eiv4iS4s3BjFiUck04ts2uQ__",
+                    }}
+                    resizeMode="contain"
+                    style={styles.image2}
+                  />
+                </LinearGradient>
+
+                <View
+                  style={{
+                    width: 284,
+                    position: "absolute",
+                    bottom: 80,
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "flex-end",
+                  }}
+                >
+                  <LinearGradient
+                    colors={["#00FFBB", "#009970"]}
+                    style={{ height: 59, width: 82 }}
+                  />
+                  <View
+                    style={{
+                      height: 87,
+                      width: 47,
+                      borderWidth: 4,
+                      borderColor: "#8E8D8D",
+                    }}
+                  />
+                  <View
+                    style={{
+                      height: 33,
+                      width: 47,
+                      borderWidth: 4,
+                      borderColor: "#8E8D8D",
+                    }}
+                  />
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.bottomView}>
+              <View style={styles.leftTextView}>
+                <FIcon />
+                <View style={styles.fcView}>
+                  <CIcon />
+                </View>
+                <Text style={styles.leftText}>FITCENTIVE.app</Text>
+              </View>
+              <Text style={styles.rightText}>HEALTH IS WEALTH</Text>
+            </View>
+          </LinearGradient>
+        </View>
       </Swiper>
     </SafeAreaPage>
   );
@@ -381,6 +511,19 @@ const createStyles = () =>
       borderWidth: 1,
       borderColor: "#00FFBB",
     },
+    imageRoundView2: {
+      height: 56,
+      width: 56,
+      borderRadius: 56,
+      backgroundColor: "red",
+      alignItems: "center",
+      justifyContent: "center",
+      alignSelf: "center",
+      borderWidth: 1,
+      marginRight: 92,
+      marginTop: 40,
+      borderColor: "#00FFBB",
+    },
     imageView: {
       height: 51,
       width: 51,
@@ -393,6 +536,11 @@ const createStyles = () =>
       height: 39,
       width: 39,
       borderRadius: 39,
+    },
+    image2: {
+      height: 50,
+      width: 50,
+      borderRadius: 50,
     },
     bottomView: {
       flexDirection: "row",
@@ -456,6 +604,11 @@ const createStyles = () =>
       backgroundColor: "#1A1A1A",
       borderBottomWidth: 1,
       borderBottomColor: "#8E8D8D",
+    },
+    linearTopLine: {
+      height: 10,
+      borderBottomColor: "#00FFBB",
+      borderBottomWidth: 2,
     },
     topRoundView: {
       height: 31,

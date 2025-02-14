@@ -106,7 +106,53 @@ export const ChallengeSlider = () => {
             </View>
           </LinearGradient>
         </View>
-        <View style={{ flex: 1, backgroundColor: "green" }}></View>
+        <View style={styles.container}>
+          <Text style={styles.headerText}>JOIN ME</Text>
+          <LinearGradient
+            colors={["#707070", "#393939", "#393939"]}
+            style={styles.linearView}
+          >
+            <View style={styles.bottomView}>
+              <View style={styles.leftTextView}>
+                <FIcon />
+                <View style={styles.fcView}>
+                  <CIcon />
+                </View>
+                <Text style={styles.leftText}>FITCENTIVE.app</Text>
+              </View>
+              <Text style={styles.rightText}>HEALTH IS WEALTH</Text>
+            </View>
+            <View style={styles.subContainer}>
+              <LinearGradient
+                colors={["#008360", "#00FFBB", "#C7FFF0", "#00FFBB", "#008360"]}
+                style={styles.roundView}
+              >
+                <View style={styles.subRoundView}>
+                  <Image
+                    source={{
+                      uri: "https://s3-alpha-sig.figma.com/img/a16b/b3cc/89541ce3c27b79db09431b7accb58abc?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mwCpG-ucj1HL2yJgPgyxabSiDeD57GgStzceUIdM4hEj47HsN2dX12oR1QhzRHW4O7D1gR~wCzo4vqE2fztQseoSy0RYcRsT2TtV9GjFjE-9XTay8blC6THhO1eC7O6UtoNLVUtKkhHiG0~EWTU2KnsCq9jdRgQes4oj6Q85QJYE427vyndsRqM6vCOYTTAK4fLJ5OOCIPlQPPns77SGTCIXV1YYkQKiJHP1q99ot4plxLGy7Fot~m4D-ddbXfCOKQUUVpMtt0y372Uqf-nQN98Ce81b3YwVmgp6OkU7mr1i-7juSP1sc0iktLqjsi2Eiv4iS4s3BjFiUck04ts2uQ__",
+                    }}
+                    resizeMode="stretch"
+                    style={styles.centerImage}
+                  />
+                </View>
+              </LinearGradient>
+              <Text style={styles.topHeader}>
+                <Text style={styles.greenText}>JOIN ME ON MY JOURNEY</Text> TO
+                EARNING MONEY AND BETTER HEALTH
+              </Text>
+              <LinearGradient
+                colors={["#00FFBB", "#008360"]}
+                style={styles.imageRoundView}
+              >
+                <FIcon />
+                <View style={styles.fcView}>
+                  <CIcon />
+                </View>
+              </LinearGradient>
+            </View>
+          </LinearGradient>
+        </View>
       </Swiper>
     </SafeAreaPage>
   );
