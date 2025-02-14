@@ -328,24 +328,86 @@ export const LeaderBoard = () => {
                 >
                   <LinearGradient
                     colors={["#00FFBB", "#009970"]}
-                    style={{ height: 59, width: 82 }}
-                  />
+                    style={{
+                      height: 59,
+                      width: 82,
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexDirection: "row",
+                    }}
+                  >
+                    <Text style={{ fontSize: 40, fontFamily: "RiftSoft-Bold" }}>
+                      2
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        fontFamily: "RiftSoft-Midium",
+                      }}
+                    >
+                      ND
+                    </Text>
+                  </LinearGradient>
                   <View
                     style={{
                       height: 87,
                       width: 47,
                       borderWidth: 4,
                       borderColor: "#8E8D8D",
+                      paddingTop: 10,
+                      justifyContent: "center",
+                      flexDirection: "row",
                     }}
-                  />
+                  >
+                    <Text
+                      style={{
+                        fontSize: 14,
+                        fontFamily: "RiftSoft-Bold",
+                        color: "#8E8D8D",
+                      }}
+                    >
+                      1
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 8,
+                        fontFamily: "RiftSoft-Midium",
+                        color: "#8E8D8D",
+                      }}
+                    >
+                      ST
+                    </Text>
+                  </View>
                   <View
                     style={{
                       height: 33,
                       width: 47,
                       borderWidth: 4,
                       borderColor: "#8E8D8D",
+                      paddingTop: 5,
+                      justifyContent: "center",
+                      flexDirection: "row",
                     }}
-                  />
+                  >
+                    <Text
+                      style={{
+                        fontSize: 14,
+                        fontFamily: "RiftSoft-Bold",
+                        color: "#8E8D8D",
+                      }}
+                    >
+                      3
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 8,
+                        fontFamily: "RiftSoft-Midium",
+                        color: "#8E8D8D",
+                      }}
+                    >
+                      RD
+                    </Text>
+                  </View>
                 </View>
               </View>
             </View>

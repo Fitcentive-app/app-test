@@ -16,3 +16,5 @@ export const scoreBar = require('./onboarding/score-bar.png');
 export const mobileSeen = require('./onboarding/mobile-seen.png');
 export const doctor = require('./onboarding/doctor.png');
 export const earningLight = require('./landing-page/total-earning-light.png');
+export const QrBorder = require('./qr-border.png');
+export const QrCode = require('./qr-code.png');
