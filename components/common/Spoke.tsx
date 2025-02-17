@@ -61,14 +61,26 @@ const SpokeComponent: React.FC<SpokeProps> = ({
   const innerRadius = outerRadius - 20;
   const center = size / 2;
 
+  const shouldReverseDirection =
+    title === "RECOVERY" || title === "SLEEP" || title === "EXERCISE";
+
   // Modify the generateArc function to add gaps between arcs
   const generateArc = (endAngle: number) => {
-    const angleReduction = angle === 180 ? angle * 0.05 : angle * 0.09; // Updated to match generateDots
-    const startAngle = -angle / 2 + angleReduction;
-    const endAngle2 =
-      endAngle === 100
-        ? angle / 2 - angleReduction
-        : startAngle + (endAngle * (angle - 2 * angleReduction)) / 100;
+    const angleReduction = angle === 180 ? angle * 0.05 : angle * 0.09;
+
+    let startAngle, endAngle2;
+    if (shouldReverseDirection && endAngle !== 100) {
+      // For progress arc in bottom components
+      startAngle = angle / 2 - angleReduction;
+      endAngle2 = startAngle - (endAngle * (angle - 3 * angleReduction)) / 100;
+    } else {
+      // For background arc and OVERALL
+      startAngle = -angle / 2 + angleReduction;
+      endAngle2 =
+        endAngle === 100
+          ? angle / 2 - angleReduction
+          : startAngle + (endAngle * (angle - 2 * angleReduction)) / 100;
+    }
 
     const startRad = (startAngle * Math.PI) / 180;
     const endRad = (endAngle2 * Math.PI) / 180;
@@ -80,7 +92,9 @@ const SpokeComponent: React.FC<SpokeProps> = ({
 
     const largeArcFlag = endAngle <= 100 ? "0" : "1";
 
-    return `M ${startX} ${startY} A ${outerRadius} ${outerRadius} 0 ${largeArcFlag} 1 ${endX} ${endY}`;
+    return `M ${startX} ${startY} A ${outerRadius} ${outerRadius} 0 ${largeArcFlag} ${
+      shouldReverseDirection && endAngle !== 100 ? 0 : 1
+    } ${endX} ${endY}`;
   };
 
   // Modify generateSectorPath to create smaller consistent gaps
@@ -91,10 +105,17 @@ const SpokeComponent: React.FC<SpokeProps> = ({
     const sectionGap = angle === 180 ? 0.5 : 0.3; // Reduced to 0.3 degree gap for bottom sections
     const totalGapsAngle = angle === 180 ? 2 * sectionGap : 6 * sectionGap; // Account for gaps between sections
 
-    const startAngle = -angle / 2 + sectionGap;
-    const endAngle = isBackground
-      ? startAngle + angle - 2 * sectionGap
-      : startAngle + (percentage * (angle - totalGapsAngle)) / 100;
+    let startAngle, endAngle;
+    if (isBackground) {
+      startAngle = -angle / 2 + sectionGap;
+      endAngle = startAngle + angle - 2 * sectionGap;
+    } else if (shouldReverseDirection) {
+      endAngle = angle / 2 - sectionGap;
+      startAngle = endAngle - (percentage * (angle - totalGapsAngle)) / 100;
+    } else {
+      startAngle = -angle / 2 + sectionGap;
+      endAngle = startAngle + (percentage * (angle - totalGapsAngle)) / 100;
+    }
 
     const startRad = (startAngle * Math.PI) / 180;
     const endRad = (endAngle * Math.PI) / 180;
@@ -191,6 +212,36 @@ const SpokeComponent: React.FC<SpokeProps> = ({
     };
   };
 
+  // Add this new function to generate the end border path
+  const generateEndBorderPath = (percentage: number) => {
+    const sectionGap = angle === 180 ? 0.5 : 0.3;
+    const totalGapsAngle = angle === 180 ? 2 * sectionGap : 6 * sectionGap;
+
+    let endAngle;
+    if (shouldReverseDirection) {
+      // For bottom components, calculate from right side
+      const rightEdge = angle / 2 - sectionGap;
+      endAngle = rightEdge - (percentage * (angle - totalGapsAngle)) / 100;
+    } else {
+      // For OVERALL, keep original calculation
+      const startAngle = -angle / 2 + sectionGap;
+      endAngle = startAngle + (percentage * (angle - totalGapsAngle)) / 100;
+    }
+
+    const endRad = (endAngle * Math.PI) / 180;
+    const endX = center + innerRadius * Math.cos(endRad);
+    const endY = center + innerRadius * Math.sin(endRad);
+
+    return `M ${endX} ${endY} L ${center} ${center}`;
+  };
+
+  // Add this function to determine border color
+  const getBorderColor = (value: number) => {
+    if (value >= 75) return "#C3FFCE"; // Green
+    if (value >= 50) return "#FFB753"; // Yellow
+    return "#FF8E8E"; // Red
+  };
+
   const styles = StyleSheet.create({
     container: {
       position: "relative",
@@ -210,10 +261,15 @@ const SpokeComponent: React.FC<SpokeProps> = ({
       <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         <Defs>
           <LinearGradient id='sectorGradient' x1='0%' y1='110%' x2='0%' y2='0%'>
-            <Stop offset='0.2' stopColor={activeColor} />
-            <Stop offset='1' stopColor='#00000042' />
+            <Stop offset='0.2' stopColor={activeColor} stopOpacity='0.6' />
+            <Stop offset='1' stopColor={activeColor} stopOpacity='0.2' />
           </LinearGradient>
-          <LinearGradient id='activeGradient' x1='0%' y1='0%' x2='100%' y2='0%'>
+          <LinearGradient
+            id='activeGradient'
+            x1={shouldReverseDirection ? "100%" : "0%"}
+            y1='0%'
+            x2={shouldReverseDirection ? "0%" : "100%"}
+            y2='0%'>
             <Stop offset='0' stopColor={activeColor} />
             <Stop offset='0.3' stopColor='white' stopOpacity='0.8' />
             <Stop offset='0.5' stopColor={activeColor} />
@@ -226,7 +282,7 @@ const SpokeComponent: React.FC<SpokeProps> = ({
           <Path
             d={generateArc(100)}
             stroke={inactiveColor}
-            strokeWidth={strokeWidth + 10}
+            strokeWidth={strokeWidth + 8}
             strokeLinecap='round'
             fill='none'
           />
@@ -241,12 +297,23 @@ const SpokeComponent: React.FC<SpokeProps> = ({
 
           {/* Filled sector */}
           {(isFilledSectorVisible || !onBoarding) && (
-            <Path
-              d={generateSectorPath(normalizedValue)}
-              fill='url(#sectorGradient)'
-              strokeLinecap='round'
-              strokeLinejoin='round'
-            />
+            <>
+              <Path
+                d={generateSectorPath(normalizedValue)}
+                fill='url(#sectorGradient)'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+              />
+
+              {/* Add shiny border with dynamic color */}
+              <Path
+                d={generateEndBorderPath(normalizedValue)}
+                stroke={getBorderColor(normalizedValue)}
+                strokeWidth={1}
+                strokeLinecap='round'
+                opacity={0.8}
+              />
+            </>
           )}
 
           {/* Base arc with black border */}
@@ -254,7 +321,7 @@ const SpokeComponent: React.FC<SpokeProps> = ({
             <Path
               d={generateArc(100)}
               stroke='black'
-              strokeWidth={strokeWidth + 5}
+              strokeWidth={strokeWidth + 3}
               strokeLinecap='round'
               fill='none'
             />
@@ -264,7 +331,7 @@ const SpokeComponent: React.FC<SpokeProps> = ({
           <Path
             d={generateArc(100)}
             stroke={inactiveColor}
-            strokeWidth={strokeWidth + 0}
+            strokeWidth={strokeWidth - 1}
             strokeLinecap='round'
             fill='none'
           />
@@ -514,7 +581,7 @@ const SpokeComponent: React.FC<SpokeProps> = ({
                   </SvgText>
                   <SvgText
                     x={calculateTextPosition().x}
-                    y={calculateTextPosition().y + 10}
+                    y={calculateTextPosition().x}
                     fill='black'
                     textAnchor='middle'
                     fontSize={titleFontSize}
@@ -746,11 +813,13 @@ const SpokeComponent: React.FC<SpokeProps> = ({
                   </SvgText>
                   <SvgText
                     x={calculateTextPosition().x}
-                    y={calculateTextPosition().y + 10}
+                    y={calculateTextPosition().x}
                     fill='white'
                     textAnchor='middle'
                     fontSize={titleFontSize}
-                    fontFamily='RiftSoft-Demi'>
+                    fontFamily='RiftSoft-Demi'
+                    dx={1}
+                    dy={1}>
                     {"PERCENTAGE"}
                   </SvgText>
                 </>

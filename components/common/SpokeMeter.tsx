@@ -43,11 +43,11 @@ export const SpokeMeter: React.FC<SpokeMeterProps> = ({
   size = 500,
 }) => {
   return (
-    <View className="w-full flex items-center justify-center">
-      <View style={{ width: size, height: size }} className="-m-32">
-        <View className="absolute -bottom-1 -right-3">
+    <View className='w-full flex items-center justify-center'>
+      <View style={{ width: size, height: size }} className='-m-32'>
+        <View className='absolute -bottom-1 -right-3'>
           <SpokeComponent
-            title="OVERALL"
+            title='OVERALL'
             number={overallScore}
             value={overallScore}
             titleFontSize={20}
@@ -73,7 +73,7 @@ export const SpokeMeter: React.FC<SpokeMeterProps> = ({
 
         {showAllSections && (
           <>
-            <View className="absolute left-1.5 top-0">
+            <View className='absolute left-1.5 top-0'>
               <SpokeComponent
                 title={thirdTitle}
                 number={thirdTitleScore!}
@@ -99,7 +99,7 @@ export const SpokeMeter: React.FC<SpokeMeterProps> = ({
                 }
               />
             </View>
-            <View className="absolute left-0 top-1">
+            <View className='absolute left-0 top-1'>
               <SpokeComponent
                 title={secondTitle}
                 number={secondTitleScore!}
@@ -125,7 +125,7 @@ export const SpokeMeter: React.FC<SpokeMeterProps> = ({
                 }
               />
             </View>
-            <View className="absolute left-0 top-0 right-3">
+            <View className='absolute left-0 top-0 right-3'>
               <SpokeComponent
                 title={firstTitle}
                 number={firstTitleScore!}
@@ -156,24 +156,23 @@ export const SpokeMeter: React.FC<SpokeMeterProps> = ({
 
         {/* Center black circle */}
         <View
-          className="absolute"
+          className='absolute'
           style={{
             width: 25,
             height: 25,
             backgroundColor: "black",
             borderRadius: 12.5,
-            top: "49.5%",
+            top: "49.7%",
             left: "50%",
             transform: [{ translateX: -12.5 }, { translateY: -12.5 }],
             shadowColor: "#000",
             shadowOffset: { width: 0, height: 0 },
             shadowOpacity: 1,
-            shadowRadius: 8,
+            shadowRadius: 10,
             elevation: 10,
             justifyContent: "center",
             alignItems: "center",
-          }}
-        >
+          }}>
           <Image
             source={FCRounded}
             style={{
@@ -183,7 +182,7 @@ export const SpokeMeter: React.FC<SpokeMeterProps> = ({
               shadowColor: "#000",
               shadowOffset: { width: 0, height: 0 },
               shadowOpacity: 1,
-              shadowRadius: 20,
+              shadowRadius: 90,
             }}
           />
         </View>
